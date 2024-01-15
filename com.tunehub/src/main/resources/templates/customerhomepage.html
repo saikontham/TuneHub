@@ -1,0 +1,62 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Customeer</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <a href="/viewallsongs">Listen to song</a>-->
+<!--<a href="/playsongs">PlaySongs</a>-->
+<!--<a href="/pay">SUBSCRIBE</a>-->
+<!--<a href="/logout">Logout</a>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="font-sans bg-gray-100">
+    <div th:unless="${isPremium}" class="non-premium">
+        <a href="pay">Get Premium</a>
+        <a href="/logout" class="text-blue-500 hover:underline">Logout</a>
+    </div>
+    <div th:if="${isPremium}" class="premium">
+
+        <table class="w-full border-collapse mt-8">
+            <thead>
+            <tr class="bg-gray-200">
+                <th class="border px-4 py-2">Name</th>
+                <th class="border px-4 py-2">Artist</th>
+                <th class="border px-4 py-2">Album</th>
+                <th class="border px-4 py-2">Genre</th>
+                <th class="border px-4 py-2">Play</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="song:${songs}" class="border">
+                <td th:text="${song.name}" class="border px-4 py-2"></td>
+                <td th:text="${song.artist}" class="border px-4 py-2"></td>
+                <td th:text="${song.album}" class="border px-4 py-2"></td>
+                <td th:text="${song.genre}" class="border px-4 py-2"></td>
+                <td class="border px-4 py-2">
+                    <audio controls th:src="${song.link}" type="audio/mp3" class="h-8">
+                    </audio>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+<!--<div class="flex flex-col items-center justify-center h-screen">-->
+<!--    <a href="/viewallsongs" class="text-blue-500 hover:underline mb-4">Listen to Songs</a>-->
+<!--    <a href="/playsongs" class="text-blue-500 hover:underline mb-4">Play Songs</a>-->
+<!--&lt;!&ndash;    <a href="/pay" class="text-blue-500 hover:underline mb-4">SUBSCRIBE PREMIUM</a>&ndash;&gt;-->
+
+<!--</div>-->
+
+</body>
+</html>

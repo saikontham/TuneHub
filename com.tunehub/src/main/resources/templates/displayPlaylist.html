@@ -1,0 +1,52 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Playlist Details</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Playlist Details</h2>-->
+
+<!--&lt;!&ndash; Assuming "playlist" is a Playlist object passed from the controller &ndash;&gt;-->
+<!--<div>-->
+<!--    <strong>Playlist Name:</strong>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--    <strong>Songs:</strong>-->
+<!--    <ul>-->
+<!--        &lt;!&ndash; Assuming "songs" is a List<Song> in the Playlist object &ndash;&gt;-->
+<!--        <li th:each="plist : ${playlist}" th:text="${plist.name}"></li>-->
+
+<!--    </ul>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-100 text-center py-10">
+
+<h2 class="text-2xl font-bold mb-4">Playlist Details</h2>
+
+<!-- Assuming "playlist" is a Playlist object passed from the controller -->
+<div class="mb-4">
+    <strong class="text-xl">Playlist Name:</strong>
+</div>
+
+<div>
+    <strong class="text-xl">Songs:</strong>
+    <ul class="list-disc pl-4">
+        <!-- Assuming "songs" is a List<Song> in the Playlist object -->
+        <li th:each="plist : ${playlist}" th:text="${plist.name}" class="mb-2"></li>
+    </ul>
+</div>
+
+</body>
+</html>

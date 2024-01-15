@@ -1,0 +1,67 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Create Playlist</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Create Playlist</h2>-->
+
+<!--<form action="/addplaylist" method="post">-->
+<!--    &lt;!&ndash; Playlist Name Input &ndash;&gt;-->
+<!--    <label for="playlistName">Playlist Name:</label>-->
+<!--    <input type="text" id="playlistName" name="name" required>-->
+<!--    <br>-->
+
+<!--    &lt;!&ndash; Song Selection Checkboxes &ndash;&gt;-->
+<!--    <label>Songs:</label>-->
+<!--    <div>-->
+<!--        &lt;!&ndash; Assuming songs is a list of available songs from the server &ndash;&gt;-->
+<!--        <th:block th:each="song : ${songs}">-->
+<!--            <input type="checkbox" id="song_${song.id}" th:name="songs" th:value="${song.id}">-->
+<!--            <label th:for="${'song_' + song.id}" th:text="${song.name}"></label>-->
+<!--            <br>-->
+<!--        </th:block>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Submit Button &ndash;&gt;-->
+<!--    <button type="submit" value="ADDPLAYLIST">Create Playlist</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Playlist</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-100">
+
+<h2 class="text-2xl font-bold mb-4">Create Playlist</h2>
+
+<form action="/addplaylist" method="post" class="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+    <!-- Playlist Name Input -->
+    <label for="playlistName" class="block mb-2">Playlist Name:</label>
+    <input type="text" id="playlistName" name="name" required class="w-full p-2 mb-4 border rounded-md">
+
+    <!-- Song Selection Checkboxes -->
+    <label class="block mb-2">Songs:</label>
+    <div>
+        <!-- Assuming songs is a list of available songs from the server -->
+        <th:block th:each="song : ${songs}">
+            <input type="checkbox" id="song_${song.id}" th:name="songs" th:value="${song.id}" class="mr-2">
+            <label th:for="${'song_' + song.id}" th:text="${song.name}" class="mr-4"></label>
+            <br>
+        </th:block>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" value="ADDPLAYLIST" class="w-full bg-blue-500 text-white p-2 rounded-md cursor-pointer">Create Playlist</button>
+</form>
+
+</body>
+</html>
+
